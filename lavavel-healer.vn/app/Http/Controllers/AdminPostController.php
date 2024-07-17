@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class AdminPostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -12,7 +12,6 @@ class PostController extends Controller
     public function index()
     {
         //
-        return "Hiển thị danh sách bài viết";
     }
 
     /**
@@ -20,8 +19,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //Xử lý thêm dữu liệu
-        return redirect('post');
+        //
+        return "Admin : Thêm bài viết";
     }
 
     /**
@@ -38,7 +37,7 @@ class PostController extends Controller
     public function show(string $id)
     {
         //
-        return "Hiển thị bài viết";
+        return "Admin: Hiển thị danh sách bài viết";
     }
 
     /**
@@ -47,6 +46,7 @@ class PostController extends Controller
     public function edit(string $id)
     {
         //
+        return "Admin: Sửa bài viết ";
     }
 
     /**
@@ -55,6 +55,7 @@ class PostController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        return "Admin: Cập nhật bài viết id{$id}";
     }
 
     /**
@@ -63,5 +64,6 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         //
+        return "Admin: Phá hủy bài viết ";
     }
 }
