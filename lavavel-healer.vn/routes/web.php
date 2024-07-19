@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\AdminPostController_1;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -111,10 +112,35 @@ Route::get('/', function () {
 //Định tuyến qua controller
 // Route::get('/post/{id}', [PostController::class, 'detail']);
 
-Route::get('product/show/{id}', [ProductController::class, 'show']);
-Route::get('product/create', [ProductController::class, 'create']);
-Route::get('product/update/{id}', [ProductController::class, 'update']);
+// Route::get('product/show/{id}', [ProductController::class, 'show']);
+// Route::get('product/create', [ProductController::class, 'create']);
+// Route::get('product/update/{id}', [ProductController::class, 'update']);
 
 
-Route::resource('post', PostController::class);
-Route::resource('post', AdminPostController::class);
+// Route::resource('post', PostController::class);
+// Route::resource('post', AdminPostController::class);
+// Route::get('post/index', [PostController::class, 'index']);
+
+// Route::get('admin/post/show', [AdminPostController_1::class, 'show']);
+
+Route::get('post/add', [AdminPostController_1::class, 'add']);
+
+Route::get('child', function () {
+    return view('child', ['data' => "5", 'post_title' => "Khóa học Laravel Pro - Healer.vn"]);
+});
+
+
+// Route::get('demo', function () {
+//     $users = array(
+//         1 => array(
+//             'name' => 'Nguyễn Thế Hiệu',
+//         ),
+//         2 => array(
+//             'name' => 'Nguyễn Thị Hải Yến',
+//         ),
+//         3 => array(
+//             'name' => 'Phạm Việt Anh',
+//         ),
+//     );
+//     return view('demo', compact('users'));
+// });

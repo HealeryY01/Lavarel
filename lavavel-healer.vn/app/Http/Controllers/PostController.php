@@ -12,7 +12,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        return "Hiển thị danh sách bài viết";
+        // return "Hiển thị danh sách bài viết";
+        return view('post');
     }
 
     /**
