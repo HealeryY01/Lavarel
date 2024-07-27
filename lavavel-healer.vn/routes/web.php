@@ -3,8 +3,10 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminPostController_1;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('welcome');
@@ -123,11 +125,11 @@ Route::get('/', function () {
 
 // Route::get('admin/post/show', [AdminPostController_1::class, 'show']);
 
-Route::get('post/add', [AdminPostController_1::class, 'add']);
+// Route::get('post/add', [AdminPostController_1::class, 'add']);
 
-Route::get('child', function () {
-    return view('child', ['data' => "5", 'post_title' => "Khóa học Laravel Pro - Healer.vn"]);
-});
+// Route::get('child', function () {
+//     return view('child', ['data' => "5", 'post_title' => "Khóa học Laravel Pro - Healer.vn"]);
+// });
 
 
 // Route::get('demo', function () {
@@ -144,3 +146,22 @@ Route::get('child', function () {
 //     );
 //     return view('demo', compact('users'));
 // });
+
+// Route::get('users/insert', function () {
+//     DB::table('users')->insert(
+//         ['name' => 'Nguyễn Thị Hải Yến', 'email' => 'haiyen@gmail.com', 'password' => bcrypt('admin')]
+//     );
+// });
+
+
+
+// Route::get('posts/add', [PostController::class, 'add']);
+// Route::get('posts/show', [PostController::class, 'show']);
+// Route::get('posts/update/{id}', [PostController::class, 'update']);
+// Route::get('posts/delete/{id}', [PostController::class, 'delete']);
+
+
+Route::get('admin/product/add', [AdminProductController::class, 'add']);
+Route::get('admin/product/show', [AdminProductController::class, 'show']);
+Route::get('admin/product/update/{id}', [AdminProductController::class, 'update']);
+Route::get('admin/product/delete/{id}', [AdminProductController::class, 'delete']);
