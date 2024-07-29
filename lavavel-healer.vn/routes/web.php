@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
 Route::get('/', function () {
     return view('welcome');
@@ -165,3 +166,16 @@ Route::get('admin/product/add', [AdminProductController::class, 'add']);
 Route::get('admin/product/show', [AdminProductController::class, 'show']);
 Route::get('admin/product/update/{id}', [AdminProductController::class, 'update']);
 Route::get('admin/product/delete/{id}', [AdminProductController::class, 'delete']);
+
+
+
+// ELOQUENT ORM
+
+
+// Route::get('posts/read', function () {
+//     $posts = Post::all();
+//     return $posts;
+// });
+
+
+Route::get('posts/read', [PostController::class, 'read']);

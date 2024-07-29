@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -115,5 +116,20 @@ class PostController extends Controller
         return  DB::table('posts')
             ->where('id', $id)
             ->delete();
+    }
+
+    function read()
+    {
+        // $posts = Post::all();
+        // echo "<pre>";
+        // print_r($posts);
+        // echo "</pre>";
+        // return $posts;
+
+        // $posts =  Post::where('title', 'like', '%iphone%')->get();
+        // return $posts;
+
+        $post = Post::where('user_id', 5)->first();
+        return $post->title;
     }
 }
