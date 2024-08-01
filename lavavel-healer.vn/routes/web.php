@@ -156,16 +156,16 @@ Route::get('/', function () {
 
 
 
-// Route::get('posts/add', [PostController::class, 'add']);
-// Route::get('posts/show', [PostController::class, 'show']);
-// Route::get('posts/update/{id}', [PostController::class, 'update']);
-// Route::get('posts/delete/{id}', [PostController::class, 'delete']);
+Route::get('posts/add', [PostController::class, 'add']);
+Route::get('posts/show', [PostController::class, 'show']);
+Route::get('posts/update/{id}', [PostController::class, 'update']);
+Route::get('posts/delete/{id}', [PostController::class, 'delete']);
 
 
-Route::get('admin/product/add', [AdminProductController::class, 'add']);
-Route::get('admin/product/show', [AdminProductController::class, 'show']);
-Route::get('admin/product/update/{id}', [AdminProductController::class, 'update']);
-Route::get('admin/product/delete/{id}', [AdminProductController::class, 'delete']);
+// Route::get('admin/product/add', [AdminProductController::class, 'add']);
+// Route::get('admin/product/show', [AdminProductController::class, 'show']);
+// Route::get('admin/product/update/{id}', [AdminProductController::class, 'update']);
+// Route::get('admin/product/delete/{id}', [AdminProductController::class, 'delete']);
 
 
 
@@ -179,3 +179,9 @@ Route::get('admin/product/delete/{id}', [AdminProductController::class, 'delete'
 
 
 Route::get('posts/read', [PostController::class, 'read']);
+
+
+Route::get('posts/restore/{id}', [PostController::class, 'restore']);
+
+
+Route::get('posts/permanentlyDelete/{id}', [PostController::class, 'permanentlyDelete']);
