@@ -12,4 +12,15 @@ class Post extends Model
     use HasFactory;
     // protected $table = 'postss';
     protected $fillable = ['title', 'content', 'user_id', 'votes'];
+
+
+    function FeaturedImages()
+    {
+        return $this->hasOne('App\Models\FeaturedImages');
+    }
+
+    function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

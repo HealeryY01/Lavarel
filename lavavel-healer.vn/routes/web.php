@@ -4,7 +4,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\AdminPostController_1;
 use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\FeaturedImagesController;
 use App\Http\Controllers\ProductController;
+use App\Models\FeaturedImages;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
@@ -185,3 +187,6 @@ Route::get('posts/restore/{id}', [PostController::class, 'restore']);
 
 
 Route::get('posts/permanentlyDelete/{id}', [PostController::class, 'permanentlyDelete']);
+
+
+Route::get('images/read', [FeaturedImagesController::class, 'read']);

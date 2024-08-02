@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\User;
 use PhpParser\Node\Stmt\Return_;
 
 class PostController extends Controller
@@ -28,10 +29,10 @@ class PostController extends Controller
         // $post->save();
 
         Post::create([
-            'title' => 'Post 3',
+            'title' => 'Post 2',
             'content' => 'Content post',
-            'user_id' => 5,
-            'votes' => 32
+            'user_id' => 6,
+            'votes' => 37
         ]);
     }
     function show()
@@ -200,9 +201,20 @@ class PostController extends Controller
         // $posts = Post::withTrashed()
         //     ->get();
 
-        $posts = Post::onlyTrashed()
-            ->get();
+        // $posts = Post::onlyTrashed()
+        //     ->get();
 
+        // return $posts;
+
+        // $img = Post::find(2)
+        //     ->FeaturedImages;
+        // return $img;
+
+        $user = Post::find(2)
+            ->user;
+
+        $posts = User::find(6)
+            ->posts;
         return $posts;
     }
 
