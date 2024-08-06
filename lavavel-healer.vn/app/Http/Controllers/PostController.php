@@ -28,12 +28,13 @@ class PostController extends Controller
         // $post->votes = 20;
         // $post->save();
 
-        Post::create([
-            'title' => 'Post 2',
-            'content' => 'Content post',
-            'user_id' => 6,
-            'votes' => 37
-        ]);
+        // Post::create([
+        //     'title' => 'Post 2',
+        //     'content' => 'Content post',
+        //     'user_id' => 6,
+        //     'votes' => 37
+        // ]);
+        return view('post.create');
     }
     function show()
     {

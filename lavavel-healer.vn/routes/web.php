@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminPostController_1;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\FeaturedImagesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
 use App\Models\FeaturedImages;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -158,10 +159,10 @@ Route::get('/', function () {
 
 
 
-Route::get('posts/add', [PostController::class, 'add']);
-Route::get('posts/show', [PostController::class, 'show']);
-Route::get('posts/update/{id}', [PostController::class, 'update']);
-Route::get('posts/delete/{id}', [PostController::class, 'delete']);
+// Route::get('posts/add', [PostController::class, 'add']);
+// Route::get('posts/show', [PostController::class, 'show']);
+// Route::get('posts/update/{id}', [PostController::class, 'update']);
+// Route::get('posts/delete/{id}', [PostController::class, 'delete']);
 
 
 // Route::get('admin/product/add', [AdminProductController::class, 'add']);
@@ -180,13 +181,20 @@ Route::get('posts/delete/{id}', [PostController::class, 'delete']);
 // });
 
 
-Route::get('posts/read', [PostController::class, 'read']);
+// Route::get('posts/read', [PostController::class, 'read']);
 
 
-Route::get('posts/restore/{id}', [PostController::class, 'restore']);
+// Route::get('posts/restore/{id}', [PostController::class, 'restore']);
 
 
-Route::get('posts/permanentlyDelete/{id}', [PostController::class, 'permanentlyDelete']);
+// Route::get('posts/permanentlyDelete/{id}', [PostController::class, 'permanentlyDelete']);
 
 
-Route::get('images/read', [FeaturedImagesController::class, 'read']);
+// Route::get('images/read', [FeaturedImagesController::class, 'read']);
+
+// Route::get('role/show', [RoleController::class, 'show']);
+
+
+#FORM
+
+Route::get('post/add', [PostController::class, 'add']);
