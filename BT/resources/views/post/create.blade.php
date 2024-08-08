@@ -15,18 +15,39 @@
 
     
     <h1>Thêm bài viết</h1>
-    {!! Form::open(['url'=>'post/store' , 'method'=> 'POST' ])!!}
-   
+
+
+    {{-- @if($errors->any())
+   <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+      @endforeach
+    </ul>    
+   </div>
+    @endif --}}
+
+
+    {!! Form::open(['url'=>'post/store' , 'method'=> 'GET' ])!!}
         <div class="form-group">
-          <input type="text" name="title" id="" class="form-control" placeholder="Tiêu đề">
+          {!! Form::text('title','',['class' =>'form-control','placeholder'=>'Tiêu đề'])!!}
+          {{-- <input type="text" name="title" id="" class="form-control" placeholder="Tiêu đề"> --}}
+          @error('title')
+          <small class="form-text text-danger">{{$message}}</small>
+          @enderror
         </div>
         <div class="form-group">
-            <textarea class="form-control" name="content" placeholder="Nội dung" id="" cols="30" rows="10"></textarea>
+          {!! Form::textarea('content','',['class' =>'form-control','placeholder'=>'Nội dung'])!!}
+            {{-- <textarea class="form-control" name="content" placeholder="Nội dung" id="" cols="30" rows="10"></textarea> --}}
+            @error('content')
+            <small class="form-text text-danger">{{$message}}</small>
+            @enderror
         </div> 
         <div class="form-group">
-            <input type="submit" name="sm-add">
+          {!! Form::submit('Thêm mới',['name' =>'sm-add','class'=>'btn btn-dark'])!!}
+            {{-- <input type="submit" name="sm-add"> --}}
         </div>     
-    {!!Form::close()!!}
+    {!!Form::close()!!}    
 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

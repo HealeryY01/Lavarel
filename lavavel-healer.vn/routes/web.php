@@ -197,4 +197,4 @@ Route::get('/', function () {
 
 #FORM
 
-Route::get('post/add', [PostController::class, 'add']);
+Route::get('posts/add', [PostController::class, 'add']);
