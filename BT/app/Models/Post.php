@@ -10,5 +10,10 @@ class Post extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    protected $fillable = ['title', 'content', 'user_id', 'votes'];
+    protected $fillable = ['title', 'content', 'user_id', 'votes', 'thumbnail'];
+
+    function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }

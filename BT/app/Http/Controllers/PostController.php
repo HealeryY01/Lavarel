@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -30,6 +31,33 @@ class PostController extends Controller
                 'content' => 'Nội dung'
             ]
         );
-        return $request->input();
+        $input = $request->all();
+        if ($request->hasFile('file')) {
+            $file = $request->file;
+            //Lấy tên file
+            $filename = $file->getClientOriginalName();
+            //Lấy đuôi file
+            echo $file->getClientOriginalExtension();
+            //Lấy kích thước file
+            echo $file->getsize();
+
+            $file->move('public/uploads', $file->getClientOriginalName());
+            $thumbnail = 'public/uploads/' . $filename;
+
+            $input['thumbnail'] = $thumbnail;
+        }
+        $input['user_id'] = 1;
+        Post::create($input);
+        // return redirect('post/show');
+
+        return redirect()->route('post.show');
+    }
+
+
+
+    function show()
+    {
+        $posts = Post::all();
+        return view('post.index', compact('posts'));
     }
 }

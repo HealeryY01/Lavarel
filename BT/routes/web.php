@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,12 @@ Route::get('/', function () {
 
 
 Route::get('post/add', [PostController::class, 'add']);
-Route::get('post/store', [PostController::class, 'store']);
+
+
+Route::post('post/store', [PostController::class, 'store']);
+
+Route::get('post/show', [PostController::class, 'show'])->name('post.show');
+
 Route::get('user/reg', function () {
     return view('user/reg');
 });
