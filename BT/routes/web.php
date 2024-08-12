@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\HelperController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +26,8 @@ Route::get('post/add', [PostController::class, 'add']);
 Route::post('post/store', [PostController::class, 'store']);
 
 Route::get('post/show', [PostController::class, 'show'])->name('post.show');
+
+Route::get('helper/url', [HelperController::class, 'url']);
 
 Route::get('user/reg', function () {
     return view('user/reg');

@@ -14,11 +14,16 @@
 
 <body>
     <h1>Trang danh sách bài viết</h1>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <ul>
         @foreach ($posts as $post)
             <li>
                 <a href="">{{ $post->title }}</a><br>
-                <img src="{{ url($post->thumbnail) }}" alt="">
+                {{-- <img src="{{ url($post->thumbnail) }}" alt=""> --}}
                 <p>{{ $post->content }}</p>
             </li>
         @endforeach

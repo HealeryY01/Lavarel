@@ -48,15 +48,17 @@ class PostController extends Controller
         }
         $input['user_id'] = 1;
         Post::create($input);
-        // return redirect('post/show');
 
-        return redirect()->route('post.show');
+        return redirect('post/show')->with('status', 'Thêm bài viết thành công!');
+
+        // return redirect()->route('post.show');
     }
 
 
 
     function show()
     {
+        return redirect()->away('http://unitop.vn');
         $posts = Post::all();
         return view('post.index', compact('posts'));
     }
