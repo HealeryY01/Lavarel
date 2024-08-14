@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CookieController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\HelperController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,20 @@ Route::get('post/show', [PostController::class, 'show'])->name('post.show');
 
 Route::get('helper/url', [HelperController::class, 'url']);
 
+Route::get('helper/string', [HelperController::class, 'string']);
+
 Route::get('user/reg', function () {
     return view('user/reg');
 });
+
+
+Route::get('session/add', [SessionController::class, 'add']);
+
+Route::get('session/show', [SessionController::class, 'show']);
+
+Route::get('session/add_flash', [SessionController::class, 'add_flash']);
+
+Route::get('session/delete', [SessionController::class, 'delete']);
+
+Route::get('cookie/set', [CookieController::class, 'set']);
+Route::get('cookie/get', [CookieController::class, 'get']);
