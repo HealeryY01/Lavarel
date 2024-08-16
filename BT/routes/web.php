@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CookieController;
+use App\Http\Controllers\DemoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\HelperController;
@@ -48,3 +49,6 @@ Route::get('session/delete', [SessionController::class, 'delete']);
 
 Route::get('cookie/set', [CookieController::class, 'set']);
 Route::get('cookie/get', [CookieController::class, 'get']);
+
+
+Route::get('demo/sendmail', [DemoController::class, 'sendmail']);

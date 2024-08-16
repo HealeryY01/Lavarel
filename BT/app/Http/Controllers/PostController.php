@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -58,8 +59,20 @@ class PostController extends Controller
 
     function show()
     {
-        return redirect()->away('http://unitop.vn');
-        $posts = Post::all();
+        // return redirect()->away('http://unitop.vn');
+        // $posts = Post::all();
+
+
+        //Query Builder
+        // $posts = DB::table('posts')->simplepaginate(3);
+        //ORM
+        $posts = Post::simplepaginate(4);
+
+
+        $posts->withPath('demo/show');
+
+
+        // $posts = Post::where('id', '>', 9)->orderby('id', 'desc')->paginate(4);
         return view('post.index', compact('posts'));
     }
 }
