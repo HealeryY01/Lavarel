@@ -52,3 +52,7 @@ Route::get('cookie/get', [CookieController::class, 'get']);
 
 
 Route::get('demo/sendmail', [DemoController::class, 'sendmail']);
+
+Route::group(['prefix' => 'laravel-filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});

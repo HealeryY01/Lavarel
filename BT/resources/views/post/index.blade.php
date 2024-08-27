@@ -24,7 +24,7 @@
             <li>
                 <a href="">{{ $post->title }}</a><br>
                 {{-- <img src="{{ url($post->thumbnail) }}" alt=""> --}}
-                <p>{{ $post->content }}</p>
+                <p>{!! $post->content !!}</p>
             </li>
         @endforeach
     </ul>
