@@ -6,17 +6,19 @@ use App\Http\Controllers\AdminPostController_1;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\FeaturedImagesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\RoleController;
 use App\Models\FeaturedImages;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-
+Route::get('/', [ProductController::class, 'show']);
+Route::get('cart/show', [CartController::class, 'show']);
 
 
 
@@ -66,7 +68,7 @@ Route::get('/', function () {
 // });
 
 
-// // Định tuyến có tham số 
+// // Định tuyến có tham số
 // Route::get('posts/{id}', function ($id) {
 //     return $id;
 // });
@@ -76,7 +78,7 @@ Route::get('/', function () {
 // });
 
 
-// //Đặt tên định tuyến 
+// //Đặt tên định tuyến
 // Route::get('users/profile', function () {
 //     return route('profile');
 // })->name('profile');
@@ -87,7 +89,7 @@ Route::get('/', function () {
 // })->name('product.add');
 
 
-//Định tuyến có tham số tùy chọn 
+//Định tuyến có tham số tùy chọn
 // domain.com/users => Hiển thị ra dnah sách users
 // domain.com/users/4 => Hiển thị ra thông tin của người dùng có id = 4
 
@@ -197,4 +199,4 @@ Route::get('/', function () {
 
 #FORM
 
-Route::get('posts/add', [PostController::class, 'add']);
+// Route::get('posts/add', [PostController::class, 'add']);

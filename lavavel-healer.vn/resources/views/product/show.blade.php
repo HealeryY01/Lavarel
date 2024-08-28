@@ -1,14 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.shop')
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Shop</h1>
+                <div class="list-product mt-3">
+                    <div class="row">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <h1>Hiển thị thông tin sản phẩm có id: {{$id}}, giá: {{$price}}, color:{{$colors[0]}}</h1>
-</body>
-
-</html>
+                        @foreach ($products as $product)
+                            <div class="col-md-3 col-sm-4 col-6 mb-3">
+                                <div class="product-item border py-2">
+                                    <div class="product-thumb">
+                                        <a href="">
+                                            <img class="img-fluid" src="{{ asset($product->thumbnail) }}" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-info p-2 text-center">
+                                        <a class="product-title" href="">{{ $product->name }}</a>
+                                        <div class="price-box">
+                                            <span
+                                                class="current-price text-danger">{{ number_format($product->price, 0, '', '.') }}đ</span>
+                                        </div>
+                                        <a href="" class="btn btn-outline-danger btn-sm mt-3" class="add-to-cart">Đặt
+                                            Mua</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
