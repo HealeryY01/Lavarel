@@ -21,8 +21,9 @@
                                             <span
                                                 class="current-price text-danger">{{ number_format($product->price, 0, '', '.') }}đ</span>
                                         </div>
-                                        <a href="" class="btn btn-outline-danger btn-sm mt-3" class="add-to-cart">Đặt
-                                            Mua</a>
+                                        <a href="{{ route('cart.add', $product->id) }}"
+                                            class="btn btn-outline-danger btn-sm mt-3" class="add-to-cart">Thêm vào giỏ
+                                            hàng</a>
                                     </div>
                                 </div>
                             </div>
