@@ -33,8 +33,5 @@ class ProductController extends Controller
         $products = Product::all();
         return view('product.show', compact('products'));
     }
-    function add($id)
-    {
-        return "Thêm sản phẩm {id} vào giỏ hàng";
-    }
+  
 }
