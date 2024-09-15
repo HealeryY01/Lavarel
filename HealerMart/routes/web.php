@@ -29,3 +29,19 @@ Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('auth
 Route::get('/admin', [DashboardController::class, 'show']);
 
 Route::get('admin/user/list', [AdminUserController::class, 'list']);
+
+Route::get('admin/user/add', [AdminUserController::class, 'add']);
+
+Route::post('admin/user/store', [AdminUserController::class, 'store']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'show']);
+
+    Route::get('/admin', [DashboardController::class, 'show']);
+
+    Route::get('admin/user/list', [AdminUserController::class, 'list']);
+
+    Route::get('admin/user/add', [AdminUserController::class, 'add']);
+
+    Route::post('admin/user/store', [AdminUserController::class, 'store']);
+});

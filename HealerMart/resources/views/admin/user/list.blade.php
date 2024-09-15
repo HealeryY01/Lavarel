@@ -2,11 +2,19 @@
 @section('content')
     <div id="content" class="container-fluid">
         <div class="card">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+
+
             <div class="card-header font-weight-bold d-flex justify-content-between align-items-center">
                 <h5 class="m-0 ">Danh sách thành viên</h5>
                 <div class="form-search form-inline">
                     <form action="#">
-                        <input type="" class="form-control form-search" placeholder="Tìm kiếm">
+                        <input type="text" class="form-control form-search" name="keyword"
+                            value="{{ request()->input('keyword') }}" placeholder="Tìm kiếm">
                         <input type="submit" name="btn-search" value="Tìm kiếm" class="btn btn-primary">
                     </form>
                 </div>
@@ -40,27 +48,39 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $user)
+                        @if ($users->total() > 0)
+                            @php
+                                $t = 0;
+                            @endphp
+                            @foreach ($users as $user)
+                                @php
+                                    $t++;
+                                @endphp
+                                <tr>
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td scope="row">{{ $t }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>Admintrator</td>
+                                    <td>{{ $user->created_at }}</td>
+                                    <td>26:06:2020 14:00</td>
+                                    <td>
+                                        <a href="#" class="btn btn-success btn-sm rounded-0 text-white" type="button"
+                                            data-toggle="tooltip" data-placement="top" title="Edit"><i
+                                                class="fa fa-edit"></i></a>
+                                        <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button"
+                                            data-toggle="tooltip" data-placement="top" title="Delete"><i
+                                                class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
                             <tr>
-                                <td>
-                                    <input type="checkbox">
-                                </td>
-                                <th scope="row">1</th>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>Admintrator</td>
-                                <td>{{ $user->created_at }}</td>
-                                <td>26:06:2020 14:00</td>
-                                <td>
-                                    <a href="#" class="btn btn-success btn-sm rounded-0 text-white" type="button"
-                                        data-toggle="tooltip" data-placement="top" title="Edit"><i
-                                            class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger btn-sm rounded-0 text-white" type="button"
-                                        data-toggle="tooltip" data-placement="top" title="Delete"><i
-                                            class="fa fa-trash"></i></a>
-                                </td>
+                                <td colspan="7" class="bg-white">Không tìm thấy bản ghi</td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
                 {{ $users->links() }}
