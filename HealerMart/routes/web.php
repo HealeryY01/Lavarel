@@ -44,4 +44,5 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/user/add', [AdminUserController::class, 'add']);
 
     Route::post('admin/user/store', [AdminUserController::class, 'store']);
+    Route::get('admin/user/delete/{id}', [AdminUserController::class, 'delete'])->name('delete_user');
 });

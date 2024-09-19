@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                         <label for="password">Mật khẩu</label>
-                        <input class="form-control" type="password" name="email" id="password">
+                        <input class="form-control" type="password" name="password" id="password">
                         @error('password')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -32,6 +32,9 @@
                     <div class="form-group">
                         <label for="password-confirm">Xác Nhận Mật khẩu</label>
                         <input class="form-control" type="password" name="password_confirm" id="password-confirm">
+                        @error('password-confirm')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
 
                     <div class="form-group">
